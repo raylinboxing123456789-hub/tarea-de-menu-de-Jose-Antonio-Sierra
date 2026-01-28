@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0121)file:///C:/Users/18099/Documents/Tarea%20de%20html%20y%20css%20de%20Jose%20Sierra/Hacer%20login%20con%20estilo/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login de Jose - 2026</title>
+    <style>
+        /* --- 1. FONDO CON EFECTO VIENTO (ANIMADO) --- */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* Degradado llamativo que se mueve */
+            background: linear-gradient(-45deg, #027997, #ee0404, #e4e2de, #25da0d);
+            background-size: 400% 400%;
+            animation: vientoAnimado 12s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes vientoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- 2. CONTENEDOR LOGIN (ESTILO CRISTAL Y RESPLANDOR) --- */
+        .login-container {
+            background: rgba(15, 15, 25, 0.85); /* Color llamativo oscuro translúcido */
+            backdrop-filter: blur(15px);
+            padding: 50px 40px;
+            border-radius: 40px; /* Esquinas curveadas */
+            width: 350px;
+            text-align: center;
+            /* Marco iluminado con resplandor blanco fuerte */
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 
+                        0 0 60px rgba(200, 80, 192, 0.4);
+            position: relative;
+        }
+
+        /* --- 3. IMAGEN REDONDA Y GRANDE --- */
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%; /* Imagen redonda */
+            background: white;
+            padding: 5px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 12px 20px rgba(0,0,0,0.7)); /* Sombra para profundidad */
+            object-fit: cover;
+        }
+
+        /* --- 4. BIENVENIDA CON TRANSICIÓN Y LÍNEA --- */
+        .welcome-text {
+            color: white;
+            font-size: 28px;
+            text-decoration: underline; /* Letras con línea */
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: entradaSuave 1.2s ease-out forwards;
+        }
+
+        @keyframes entradaSuave {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- 5. INPUTS SEPARADOS --- */
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            border: none;
+            font-size: 16px;
+            box-sizing: border-box;
+            background: #f0f0f0;
+        }
+        
+        .pass-visible {
+            display: none;
+            position: absolute;
+            top: 0; left: 0;
+            background: #f0f0f0;
+        }
+
+        .eye-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 10;
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* Lógica para mostrar la clave al marcar el ojo */
+        #show-pass:checked ~ .pass-visible { display: block; }
+        #show-pass:checked ~ .pass-input { visibility: hidden; }
+
+        /* --- 7. BOTÓN LLAMATIVO --- */
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: #FFCC70; /* Color llamativo diferente al fondo */
+            color: #333;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background: #00DBDE;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px #00DBDE;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 400px) {
+            .login-container { width: 85%; padding: 30px 20px; }
+        }
+    </style>
+<style type="text/css" id="operaUserStyle"></style></head>
+<body>
+
+    <div class="login-container">
+        <img src="./Login con HTML y CSS - 2026_files/gigachad.jpg" class="profile-img" alt="User">
+        
+        <h1 class="welcome-text">Bienvenido, Jose Sierra</h1>
+
+        <form>
+            <div class="input-group">
+                 <input type="email" placeholder="Correo electrónico" value="jose@ejemplo.com" required="">
+            </div>
+
+            <div class="input-group password-wrapper">
+                <input type="checkbox" id="show-pass" class="toggle-checkbox">
+                
+                <input type="password" class="pass-input" value="carro1234567" required="">
+                <label for="show-pass" class="eye-icon">👁️</label>
+                
+                <input type="text" class="pass-visible" value="carro1234567" readonly="">
+            </div>
+
+            <button type="submit" class="login-btn">Ingresar</button>
+        </form>
+    </div>
+
+
+</body></html>

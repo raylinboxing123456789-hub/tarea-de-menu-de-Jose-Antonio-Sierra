@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!-- saved from url=(0088)http://127.0.0.1:5500/crear%20menu%20con%20html%20y%20css%20para%20el%20login/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title _msttexthash="677248" _msthash="0">Jose Antonio Sierra's website</title>
+    <style>
+        /* 1. FONDO CON EFECTO VIENTO (CSS PURO) */
+        body {
+            margin: 0; height: 100vh; font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(-45deg, #4158D0, #C850C0, #FFCC70, #00DBDE);
+            background-size: 400% 400%;
+            animation: vientoAnimado 10s ease infinite;
+            display: flex; flex-direction: column; overflow: hidden;
+        }
+
+        @keyframes vientoAnimado {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 2. MENÚ DE NAVEGACIÓN */
+        nav {
+            background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(10px);
+            padding: 15px; display: flex; justify-content: center; gap: 15px;
+            z-index: 100; border-bottom: 2px solid #FFCC70;
+        }
+
+        nav a {
+            color: white; text-decoration: none; font-weight: bold;
+            padding: 10px 15px; border-radius: 10px; transition: 0.3s;
+        }
+
+        nav a:hover { background: #FFCC70; color: #333; }
+
+        /* 3. LÓGICA DE SECCIONES CON CSS (:target) */
+        .content-area {
+            flex-grow: 1; display: flex; justify-content: center; align-items: center;
+            position: relative;
+        }
+
+        section {
+            position: absolute; width: 380px;
+            background: rgba(20, 20, 40, 0.9); backdrop-filter: blur(20px);
+            padding: 40px; border-radius: 40px; text-align: center; color: white;
+            border: 3px solid #fff; box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+            
+            /* Efecto de transición */
+            opacity: 0; pointer-events: none; transform: scale(0.8);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Cambia de sección sin JS usando el ancla del URL */
+        section:target { opacity: 1; pointer-events: auto; transform: scale(1); }
+        
+        /* Muestra el Inicio por defecto */
+        #inicio { opacity: 1; pointer-events: auto; transform: scale(1); }
+        #inicio:has(~ section:target) { opacity: 0; pointer-events: none; }
+
+        /* 4. ESTILOS DE IMÁGENES Y TEXTOS */
+        .img-login {
+            width: 140px; height: 140px; border-radius: 50%; /* REDONDA Y GRANDE */
+            border: 4px solid #fff; margin-bottom: 15px; object-fit: cover;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+        }
+
+        .img-servicios {
+            width: 100%; height: 160px; border-radius: 20px; /* DIFERENTE IMAGEN */
+            margin-bottom: 15px; object-fit: cover; border: 2px solid #00DBDE;
+        }
+
+        .nombre-completo { 
+            text-decoration: underline; color: #FFCC70; 
+            font-size: 24px; margin-bottom: 20px; display: block;
+        }
+
+        input {
+            width: 100%; padding: 12px; margin-bottom: 15px;
+            border-radius: 10px; border: none; box-sizing: border-box;
+            background: #fdfdfd; font-size: 16px;
+        }
+
+        .btn-universal {
+            width: 100%; padding: 15px; background: #FFCC70;
+            border: none; border-radius: 12px; font-weight: bold; cursor: pointer;
+            font-size: 16px; transition: 0.3s;
+        }
+
+        .btn-universal:hover { transform: scale(1.05); background: #00DBDE; }
+
+        /* CONTACTO ESTILIZADO */
+        .contact-box { text-align: left; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px; }
+        .person { margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
+        .name { color: #FFCC70; font-weight: bold; display: block; }
+        .phone { color: #00DBDE; font-family: 'Courier New', monospace; font-size: 18px; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="http://127.0.0.1:5500/crear%20menu%20con%20html%20y%20css%20para%20el%20login/index.html#inicio" _msttexthash="43979" _msthash="1">Home</a>
+        <a href="http://127.0.0.1:5500/crear%20menu%20con%20html%20y%20css%20para%20el%20login/index.html#servicios" _msttexthash="115193" _msthash="2">Services</a>
+        <a href="http://127.0.0.1:5500/crear%20menu%20con%20html%20y%20css%20para%20el%20login/index.html#modelos" _msttexthash="76765" _msthash="3">Models</a>
+        <a href="http://127.0.0.1:5500/crear%20menu%20con%20html%20y%20css%20para%20el%20login/index.html#contacto" _msttexthash="94510" _msthash="4">Contact</a>
+    </nav>
+
+    <div class="content-area">
+        
+        <section id="inicio">
+            <img src="./tarea de menu de jose sierra_files/imagen de ippo.jpg" class="img-login">
+            <span class="nombre-completo" _msttexthash="595777" _msthash="5">Welcome Jose Antonio Sierra</span>
+            <form action="http://127.0.0.1:5500/crear%20menu%20con%20html%20y%20css%20para%20el%20login/index.html#">
+                <input type="email" placeholder="Email" value="jose@ejemplo.com" _mstplaceholder="385671" _msthash="6">
+                <input type="password" value="carro1234567">
+                <button type="submit" class="btn-universal" _msttexthash="323115" _msthash="7">Log in to the System</button>
+            </form>
+        </section>
+
+        <section id="servicios">
+            <h2 style="text-decoration: underline; margin-bottom: 20px;" _msttexthash="180492" _msthash="8">Our Services</h2>
+            <img src="./tarea de menu de jose sierra_files/photo-1551434678-e076c223a692" class="img-servicios" alt="Tech" _mstalt="43251" _msthash="9">
+            <p _msttexthash="2230618" _msthash="10">Development of modern interfaces and digital solutions 2026.</p>
+        </section>
+
+        <section id="modelos">
+            <h2 style="text-decoration: underline;" _msttexthash="152022" _msthash="11">Model Order</h2>
+            <div style="font-size: 90px; font-weight: bold; color: #00DBDE; text-shadow: 0 0 20px rgba(0,219,222,0.5);" _msttexthash="20163" _msthash="12">#001</div>
+            <p _msttexthash="688909" _msthash="13">Exclusive management system.</p>
+        </section>
+
+        <section id="contacto">
+            <h2 style="text-decoration: underline; margin-bottom: 25px;" _msttexthash="226187" _msthash="14">Direct Contact</h2>
+            <div class="contact-box">
+                <div class="person">
+                    <span class="name" _msttexthash="44863" _msthash="15">Jose</span>
+                    <span class="phone" _msttexthash="11009687" _msthash="16">📞 829 441 9900</span>
+                </div>
+                <div class="person">
+                    <span class="name" _msttexthash="59657" _msthash="17">Denis</span>
+                    <span class="phone" _msttexthash="11085308" _msthash="18">📞 Tel: 809 598 5600</span>
+                </div>
+                <div class="person">
+                    <span class="name" _msttexthash="43927" _msthash="19">Joan</span>
+                    <span class="phone" _msttexthash="11010961" _msthash="20">📞 809 578 8800</span>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
